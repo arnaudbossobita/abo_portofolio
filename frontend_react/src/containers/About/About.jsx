@@ -1,14 +1,15 @@
 import React, {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
+
 import {AppWrap} from '../../wrapper'
-import { urlFor, client } from '../../client'
+import {urlFor, client} from '../../client'
 import './About.scss'
 
 const About = () => {
   const [abouts, setAbouts] = useState([])
 
   useEffect(() => {
-    const query = '*[_type == "abouts"]'
+    const query = '*[_type == "abouts"] | order(index asc)'
 
     client.fetch(query)
       .then((data) => setAbouts(data))

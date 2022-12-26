@@ -7,6 +7,7 @@ import skills from "./skills"
 import testimonials from "./testimonials"
 import workExperience from "./workExperience"
 import works from "./works"
+import categories from "./categories"
 
 // Add the schemas to the array of type (schemaTypes) to make it available in Sanit yStudio
-export const schemaTypes = [about, brands, contact, experiences, skills, testimonials, workExperience, works]
+export const schemaTypes = [about, brands, contact, experiences, skills, testimonials, workExperience, works, categories]

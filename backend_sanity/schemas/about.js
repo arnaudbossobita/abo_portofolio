@@ -14,6 +14,11 @@ export default {
             type:'string'
         },
         {
+            name:'index',
+            title:'Index',
+            type:'number'
+        },
+        {
             name:'imgUrl',
             title:'ImgUrl',
             type: 'image',
