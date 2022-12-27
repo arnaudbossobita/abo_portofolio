@@ -34,6 +34,9 @@ import bolt from '../assets/bolt.png';
 import nb from '../assets/nb.png';
 import skype from '../assets/skype.png';
 import spotify from '../assets/spotify.png';
+import sql from '../assets/sql.png';
+import dotnetcore from '../assets/dotnetcore.png';
+import frontend from '../assets/frontend.png';
 
 export default {
   email,
@@ -69,4 +72,7 @@ export default {
   nb,
   skype,
   spotify,
+  sql,
+  dotnetcore,
+  frontend
 }

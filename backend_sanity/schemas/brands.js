@@ -15,6 +15,11 @@ export default {
             options: {
               hotspot: true,
             },
-        }
+        },
+        {
+            name:'isActive',
+            title:'IsActive',
+            type:'boolean'
+        },
     ]
 }

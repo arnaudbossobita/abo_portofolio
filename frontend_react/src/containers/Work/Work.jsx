@@ -14,7 +14,7 @@ const Work = () => {
   const [filterWorks, setFilterWorks] = useState([])
 
   useEffect(() => {
-    const queryCategories = '*[_type == "categories"] | order(title asc)'
+    const queryCategories = '*[_type == "categories" && (isActive == true)] | order(title asc)'
 
     client.fetch(queryCategories)
       .then((data) => {
@@ -27,7 +27,7 @@ const Work = () => {
         setCategories(filters)
       })
 
-    const query = '*[_type == "works"] | order(title asc)'
+    const query = '*[_type == "works" && (isActive == true)] | order(title asc)'
 
     client.fetch(query)
       .then((data) => {

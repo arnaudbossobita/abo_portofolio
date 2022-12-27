@@ -12,6 +12,11 @@ export default {
             name: 'description',
             title: 'Description',
             type: 'string',
-        },     
+        },
+        {
+            name:'isActive',
+            title:'IsActive',
+            type:'boolean'
+        },
     ],
   };

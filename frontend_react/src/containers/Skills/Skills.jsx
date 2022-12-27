@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import {motion} from 'framer-motion'
 import ReactTooltip from 'react-tooltip'
+import dateFormat, { masks } from 'dateformat'
 
 import {AppWrap, MotionWrap} from '../../wrapper'
 import {urlFor, client} from '../../client'
@@ -11,8 +12,8 @@ const Skills = () => {
   const [skills, setSkills] = useState([])
 
   useEffect(() => {
-    const experiencesQuery = '*[_type == "experiences"] | order(year desc)'
-    const skillsQuery = '*[_type == "skills"] | order(name asc)'
+    const experiencesQuery = '*[_type == "experiences" && (isActive == true)] | order(start desc) | order(end desc)'
+    const skillsQuery = '*[_type == "skills" && (isActive == true)] | order(name asc)'
 
     client.fetch(experiencesQuery)
       .then((data) => {
@@ -54,7 +55,8 @@ const Skills = () => {
               key={experience.year}
             >
               <div className='app__skills-exp-year'>
-                <p className='bold-text'>{experience.year}</p>
+                {/* <p className='bold-text'>{experience.year}</p> */}
+                <p className='bold-text'>{dateFormat(experience.start, 'mm/yyyy') + ' - ' + (experience.isCurrent ? 'Present' : dateFormat(experience.end, 'mm/yyyy'))}</p>
               </div>
               <motion.div className='app__skills-exp-works'>
                 {experience?.works?.map((work, index) => (
@@ -70,14 +72,15 @@ const Skills = () => {
                       <h4 className='bold-text'>{work.name}</h4>
                       <p className="p-text">{work.company}</p>
                     </motion.div>
+                    {work.desc && (
                     <ReactTooltip
-                    id={work.name}
-                    effect="solid"
-                    arrowColor="#fff"
-                    className="skills-tooltip"
-                  >
+                      id={work.name}
+                      effect="solid"
+                      arrowColor="#fff"
+                      className="skills-tooltip"
+                    >
                     {work.desc}
-                  </ReactTooltip>
+                  </ReactTooltip>)}
                 </div>
                 ))}
               </motion.div>

@@ -40,6 +40,11 @@ export default {
                 title:'Tag',
                 type:'string'
             }]
-        },     
+        },
+        {
+            name:'isActive',
+            title:'IsActive',
+            type:'boolean'
+        },
     ],
   };

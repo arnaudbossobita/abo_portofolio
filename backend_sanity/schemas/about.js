@@ -7,16 +7,12 @@ export default {
             name:'title',
             title:'Title',
             type:'string'
-        },
+        },        
         {
             name:'description',
             title:'Description',
-            type:'string'
-        },
-        {
-            name:'index',
-            title:'Index',
-            type:'number'
+            type:'array',
+            of: [{type: 'block'}]
         },
         {
             name:'imgUrl',
@@ -26,6 +22,20 @@ export default {
               hotspot: true,
             },
         },
-        
+        {
+            name:'index',
+            title:'Index',
+            type:'number'
+        },
+        {
+            name:'isActive',
+            title:'IsActive',
+            type:'boolean'
+        },
+        {
+            name:'isMain',
+            title:'IsMain',
+            type:'boolean'
+        },
     ]
 }

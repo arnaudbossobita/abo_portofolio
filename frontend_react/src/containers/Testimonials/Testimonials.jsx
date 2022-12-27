@@ -16,8 +16,8 @@ const Testimonials = () => {
   };
 
   useEffect(() => {
-    const testimonialsQuery = '*[_type == "testimonials"] | order(name asc)';
-    const brandsQuery = '*[_type == "brands"] | order(name asc)';
+    const testimonialsQuery = '*[_type == "testimonials" && (isActive == true)] | order(name asc)';
+    const brandsQuery = '*[_type == "brands" && (isActive == true)] | order(name asc)';
 
     client.fetch(testimonialsQuery).then((data) => {
       setTestimonials(data);
